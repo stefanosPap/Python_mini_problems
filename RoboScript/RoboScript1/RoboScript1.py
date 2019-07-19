@@ -14,21 +14,21 @@ def highlight(code):
                         highlighted += '<span style="color: ' + colors[code[i]] + '">' + code[i]*count + '</span>'
                         i = j
                         break
-            elif (code[i].isdigit() == True and code[i+1].isdigit() == True):
+            elif (code[i].isdigit() == True and code[i+1].isdigit() == True):#case of digit 
                 substring = code[i]
                 for j in range(i,len(code)):
                     if (code[j].isdigit() == True and code[j+1].isdigit() == True):
                         substring += code[j+1]
                     else:
                         highlighted += '<span style="color: ' + colors[code[i]] + '">' + substring + '</span>'
-                        i = j
+                        i = j #skip the consecutive digits after colorize them 
                         break
             else:
                 if code[i] == '(' or code[i] == ')': #case of ( or )
                     highlighted += code[i]
                     i+=1
                     continue
-                if code[i] != " ":
+                if code[i] != " ":#because there is a space at the end of the code 
                     highlighted += '<span style="color: ' + colors[code[i]] + '">' + code[i] + '</span>'
             i+=1
     return highlighted

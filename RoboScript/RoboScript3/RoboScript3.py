@@ -1,7 +1,7 @@
 import numpy as np
 def execute(code):
     #initializations 
-    orientArray = [1,2,3,4] #all possible orientations 1 for east 2 for north 3 for west 4 for south
+    orientArray = [1,2,3,4] #all possible orientations 1 for east, 2 for north, 3 for west, 4 for south
     pathTable = np.array([0,0,0,0,1,0,0,0,0])  #in this table i print the path created
     shape =(3,3)
     pathTable = pathTable.reshape(shape)
@@ -12,6 +12,16 @@ def execute(code):
     code += " "
     i = 0
     while i < len(code)-1:
+        if code[i+1] == "(":
+            par = 1
+            for k in range(i+2,len(code)):
+                if code[k] == ")":
+                    par -= 1
+                if code[k] == "(":
+                    par += 1
+                if par == 0:
+                    break
+        
         if code[i].isdigit() == False and code[i+1].isdigit() == False:
         #find the orientation of the robot each time to use it for the move 
             if code[i] == "L" and orientation == 1:
@@ -71,7 +81,7 @@ def execute(code):
             pathTable[position[0],position[1]] = 1
             i+=1
         #case of digits 
-        else:
+        elif code[i+1].isdigit():
             index = orientArray.index(orientation)
             for k in range(i+1,len(code)):
                 if code[k].isdigit() == False:     
@@ -136,7 +146,8 @@ def execute(code):
                         position[0] += 1
                     pathTable = np.pad(pathTable,((a,b),(c,d)),'constant',constant_values=0)
                     pathTable[position[0],position[1]] = 1
-                                        
+
+                        
     #delete useless zeros from the array after loop
     size = list(pathTable.shape)
     i = 0 
@@ -167,4 +178,5 @@ def execute(code):
         if i!=size[0]-1: 
             substring += '\r\n'
     return substring 
-execute("F5RF5LFF")
+
+print execute("F4L((F4R)2(F4L)2)2(F4R)2F4")

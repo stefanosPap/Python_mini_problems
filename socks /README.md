@@ -7,12 +7,12 @@ sockMerchant has the following parameters:
 
 Return the total number of matching pairs of socks.
 
-Sample Input
+**Sample Input**
 
 9
 10 20 20 10 10 30 50 10 20
 
-Sample Output
+**Sample Output**
 
 3
 

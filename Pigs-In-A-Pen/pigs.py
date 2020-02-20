@@ -4,29 +4,35 @@ class Game():
         self.board = board
     
     def loop(self,lines,packages):
-        lines_temp = lines 
+         
+        lines_temp = lines #keep changes of the array 
+        lines_temp = sorted(lines_temp)
+        
         for i in range(len(packages)):
             count = 0
-            lines_temp = sorted(lines_temp) 
+            
             for j in range(len(lines_temp)):
                 if lines_temp[j] == packages[i][0] or lines_temp[j] == packages[i][1] or lines_temp[j] == packages[i][2] or lines_temp[j] == packages[i][3]:
                     count += 1
+            
             if count == 3:
                 for k in range(4):
                     lines_temp.append(packages[i][k])
             lines_temp = sorted(list(set(lines_temp)))
-        if lines != lines_temp:
+            packages.pop(i)
+        if lines != lines_temp: #if new lines are the same then return else loop again
             lines_temp = self.loop(lines_temp,packages)
+        
         return lines_temp   
     
     def play(self, lines):
         
-        packages = [[0] * 4]
+        packages = [[0] * 4] # array packages contains vectors that form a square of lines 
         for i in range(self.board**2):
             packages.append([0] *4)
             
         k = 1
-        count = 0     
+        count = 0 #construct packages array     
         for i in range(self.board**2):
             packages[i][0] = k
             packages[i][1] = packages[i][0] + self.board
@@ -38,7 +44,7 @@ class Game():
                 k += self.board + 2
             else:
                 k += 1
-        lines = self.loop(lines,packages)
+        lines = self.loop(lines,packages) #call loop fuanction to compute new elements 
         return lines
     
     def boardConstruct(self):
@@ -63,8 +69,9 @@ class Game():
         
      
 game = Game(3)
+#game.boardConstruct()
 a = [5, 6, 12, 13, 16, 19, 20, 23] 
 b = [2, 5, 6, 9, 12, 13, 16, 19, 20, 23]
-print(game.play(a))
-print(b)
+game.play(a)
+
 

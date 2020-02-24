@@ -17,6 +17,7 @@ var key = 'password';
 
 // creates a cipher helper with each letter substituted
 // by the corresponding character in the key
+
 var c = new VigenèreCipher(key, alphabet);
 
 c.encode('codewars'); // returns 'rovwsoiv'

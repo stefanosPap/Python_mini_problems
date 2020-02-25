@@ -10,13 +10,10 @@ Imlementation of **Vigenère** algorithm for encryption and decryption.
 The shift is derived by applying a Caesar shift to a character with the corresponding index of the key in the alphabet.
 
 
-Example
+**Example**
 
 var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 var key = 'password';
-
-// creates a cipher helper with each letter substituted
-// by the corresponding character in the key
 var c = new VigenèreCipher(key, alphabet);
 
 c.encode('codewars'); // returns 'rovwsoiv'

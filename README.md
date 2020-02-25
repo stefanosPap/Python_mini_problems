@@ -1,2 +1,2 @@
 
-Problems solved when I was learning Python 
+Problems solved when I was learning Python. 

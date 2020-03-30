@@ -22,7 +22,8 @@ class Stack():
         else:
             self.stack.append(element)
             print(f'Element {element} inserted')
-            self.top += 1 
+            self.top += 1
+            
     # pop method to remove element from the top of the stack
     def pop(self):
         if self.top == -1:
@@ -31,11 +32,20 @@ class Stack():
             print(f'Element {self.stack[self.top]} has removed from stack')
             self.stack.pop()
             self.top -= 1
+            
     # extend method to extend the length of the stack, the default value is 1  
     def extend(self, space = 1):
             self.length = self.length + space
     
-    # status method to print to show the cuurent status of the stack         
+    # returns the top element
+    def topValue(self):
+        if self.top != -1:
+            return self.stack[self.top - 1]
+        else:    
+            print('Stack is Empty')
+        
+    
+    # status method to print to show the current status of the stack         
     def status(self):
         print(f"Stack status: {self.stack}")
         print(f"Top index: {self.top}")

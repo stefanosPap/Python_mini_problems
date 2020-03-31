@@ -15,7 +15,7 @@ class Queue:
         self.tail = -1 
         self.head = 0
     
-    # enqueuemethod to add an item at the end of the queue     
+    # enqueue method to add an item at the end of the queue     
     def enqueue(self, element):
         if self.tail == self.length - 1:
             print("Queue is full")
@@ -31,7 +31,7 @@ class Queue:
              self.queue.pop(self.head)
              self.tail -= 1
     
-    # extend method to extend the length of the stack, the default value is 1  
+    # extend method to extend the length of the queue, the default value is 1  
     def extend(self, space = 1):
         self.length = self.length + space
     

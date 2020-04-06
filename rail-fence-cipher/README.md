@@ -4,9 +4,9 @@ Create two functions to encode and then decode a string using the Rail Fence Cip
 
 For example, the string "WEAREDISCOVEREDFLEEATONCE" could be represented in a three rail system as follows:
 
-W       E       C       R       L       T       E
-  E   R   D   S   O   E   E   F   E   A   O   C  
-    A       I       V       D       E       N    
+W.....E.....C.....R.....L.....T.....E
+.E...R.D...S.O...E.E...F.E...A.O...C  
+...A.....I.....V.....D.....E.....N    
 
 The encoded string would be:
 
@@ -17,3 +17,5 @@ Write a function/method that takes 2 arguments, a string and the number of rails
 Write a second function/method that takes 2 arguments, an encoded string and the number of rails, and returns the DECODED string.
 
 For both encoding and decoding, assume number of rails >= 2 and that passing an empty string will return an empty string.
+
+The problem is from https://www.codewars.com/kata/58c5577d61aefcf3ff000081/train/python

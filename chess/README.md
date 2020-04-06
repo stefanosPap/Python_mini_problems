@@ -1,3 +1,4 @@
+## Is the King in check ?
 You have to write a function
 
 king_is_in_check
@@ -20,6 +21,7 @@ Note : these are actually inverted-color chess Unicode characters because the da
 There will always be exactly one king, which is the black king, whereas all the other pieces are white.
 The board is oriented from Black's perspective.
 Remember that pawns can only move and take forward.
+<pre>
 The board is looking like this :
 
 |---|---|---|---|---|---|---|---|
@@ -39,5 +41,5 @@ The board is looking like this :
 |---|---|---|---|---|---|---|---|
 |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
-
+</pre>
 The problem is from https://www.codewars.com/kata/5e28ae347036fa001a504bbe/train/python

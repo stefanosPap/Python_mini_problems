@@ -1,3 +1,5 @@
+## RoboScript #1 - Implement Syntax Highlighting
+
 Story
 
 You are a computer scientist and engineer who has recently founded a firm which sells a toy product called MyRobot which can move by receiving a set of instructions by reading a file containing a script. Initially you have planned the robot to be able to interpret JavaScript files for its movement instructions but you later decided that it would make MyRobot too hard to operate for most customers out there who aren't even computer programmers in the first place. For this reason, you have decided to invent a new (esoteric) scripting language called RoboScript which has a much simpler syntax so non-computer programmers can easily learn how to write scripts in this language which would enable them to properly operate MyRobot. However, you are currently at the initial stage of inventing this new Esolang. The first step to popularize this (esoteric) scripting language is naturally to invent a new editor for it which provides syntax highlighting for this language so your customers feel like they are writing a proper program when they are writing scripts for MyRobot.
@@ -20,3 +22,5 @@ And for multiple characters with the same color, simply wrap them with a single 
 highlight("FFFR345F2LL"); // => "<span style=\"color: pink\">FFF</span><span style=\"color: green\">R</span><span style=\"color: orange\">345</span><span style=\"color: pink\">F</span><span style=\"color: orange\">2</span><span style=\"color: red\">LL</span>"
 
 Note that the use of <span> tags must be exactly the same format as demonstrated above. Even if your solution produces the same visual result as the expected answers, if you miss a space betwen "color:" and "green", for example, you will fail the tests.
+    
+The problem is from https://www.codewars.com/kata/58708934a44cfccca60000c4

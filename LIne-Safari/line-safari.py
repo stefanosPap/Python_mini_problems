@@ -31,27 +31,27 @@ def line(grid):
         cor = []
         possibleRow = currentRow
         possibleCol = currentCol + 1
-        if possibleCol < len(grid[0]) and possibleCol >= 0 and grid[currentRow][currentCol] != '|':
+        if possibleCol < len(grid[0]) and possibleCol >= 0 and grid[possibleRow][possibleCol] != '|' and grid[currentRow][currentCol] != '|':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousRow == possibleRow:
                 cor.pop()
             
                 
         possibleCol = currentCol - 1
-        if possibleCol < len(grid[0]) and possibleCol >= 0 and grid[currentRow][currentCol] != '|':
+        if possibleCol < len(grid[0]) and possibleCol >= 0 and grid[possibleRow][possibleCol] != '|' and grid[currentRow][currentCol] != '|':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousRow == possibleRow:
                 cor.pop()                 
         
         possibleRow = currentRow + 1
         possibleCol = currentCol  
-        if possibleRow < len(grid) and possibleRow >= 0 and grid[currentRow][currentCol] != '-':
+        if possibleRow < len(grid) and possibleRow >= 0 and grid[possibleRow][possibleCol] != '-' and grid[currentRow][currentCol] != '-':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousCol == possibleCol:
                 cor.pop()                
                 
         possibleRow = currentRow - 1
-        if possibleRow < len(grid) and possibleRow >= 0 and grid[currentRow][currentCol] != '-':
+        if possibleRow < len(grid) and possibleRow >= 0 and grid[possibleRow][possibleCol] != '-' and grid[currentRow][currentCol] != '-':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousCol == possibleCol:
                 cor.pop()
@@ -62,7 +62,7 @@ def line(grid):
                 nextMove = [cor[i][0], cor[i][1]]
                 count += 1
         
-        if count == 0:
+        if count > 1 or count == 0:
             return False
         
         if grid[currentRow][currentCol] == "-":
@@ -100,7 +100,7 @@ def line(grid):
             break
     return True
 
-grid1 = ["                      ",
+grid2 = ["                      ",
         "   +-------+          ",
         "   |      +++---+     ",
         "X--+      +-+   X     "]
@@ -113,6 +113,27 @@ grid = ["    +----+",
         "    |+-+||",  
         "    +---+|",  
         "X--------+"]
-grid = ["X+++ ",     
-        " +++X"]
-b = line(grid1)
+
+grid1 = ["+-----+",  
+         "|+---+|",  
+         "||+-+||",  
+         "|||X+||",  
+         "X|+--+|",  
+         " +----+"]
+
+grid = ["X-----+"  
+        "X     |"  
+        "|     |"  
+        "|     |"  
+        "+-----+"]
+grid = ["  X-----+",  
+        "X |     |",  
+        "  |     |",  
+        "  |     |",  
+        "  +-----+"]
+grid = ["X-----+",  
+        "      |",  
+        "X-----+",  
+        "      |",  
+        "------+"]
+b = line(grid)

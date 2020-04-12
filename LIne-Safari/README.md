@@ -1,3 +1,5 @@
+### Line Safari - Is that a line?
+
 You are given a grid, which always includes exactly two end-points indicated by X
 
 You simply need to return true/false if you can detect a one and only one "valid" line joining those points.
@@ -24,6 +26,7 @@ Rules for valid lines
     Every line "character" found in the grid must be part of the line. If extras are found then the line is not valid.
 
 Examples
+<pre>
 Good lines
 
 X---------X
@@ -76,5 +79,6 @@ X---        ---+
 
    +------ 
    |              
-X--+      X  
+X--+      X
+</pre>
 

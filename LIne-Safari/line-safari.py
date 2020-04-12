@@ -97,7 +97,14 @@ def line(grid):
         currentCol = nextMove[1]
         print(grid[currentRow][currentCol])
         if grid[currentRow][currentCol] == 'X':
+            gridCopy[currentRow][currentCol] = 1
             break
+        
+    
+    for i in range(len(grid)):                              # check for redundant path 
+        for j in range(len(grid[0])):
+            if gridCopy[i][j] == 0 and grid[i][j] != " ":
+                return False 
     return True
 
 grid2 = ["                      ",
@@ -136,4 +143,5 @@ grid = ["X-----+",
         "X-----+",  
         "      |",  
         "------+"]
+grid = ["X-----X"]
 b = line(grid)

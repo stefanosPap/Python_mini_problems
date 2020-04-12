@@ -26,6 +26,8 @@ def line(grid):
     
     previousRow = row
     previousCol = col
+    globCount = 0
+    globCount2 = 0
     while True:
         
         cor = []
@@ -43,14 +45,14 @@ def line(grid):
             if grid[currentRow][currentCol] == "+" and previousRow == possibleRow:
                 cor.pop()                 
         
-        possibleRow = currentRow + 1
+        possibleRow = currentRow - 1
         possibleCol = currentCol  
         if possibleRow < len(grid) and possibleRow >= 0 and grid[possibleRow][possibleCol] != '-' and grid[currentRow][currentCol] != '-':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousCol == possibleCol:
                 cor.pop()                
                 
-        possibleRow = currentRow - 1
+        possibleRow = currentRow + 1
         if possibleRow < len(grid) and possibleRow >= 0 and grid[possibleRow][possibleCol] != '-' and grid[currentRow][currentCol] != '-':
             cor.append([possibleRow,possibleCol])
             if grid[currentRow][currentCol] == "+" and previousCol == possibleCol:
@@ -61,9 +63,19 @@ def line(grid):
             if grid[cor[i][0]][cor[i][1]] != " " and [cor[i][0], cor[i][1]] != [previousRow, previousCol] and gridCopy[cor[i][0]][cor[i][1]] == 0:
                 nextMove = [cor[i][0], cor[i][1]]
                 count += 1
+                if grid[nextMove[0]][nextMove[1]] == '+':
+                    globCount += 1
+                if grid[nextMove[0]][nextMove[1]] == '-':
+                    globCount2 += 1
+                if count > 1 and grid[nextMove[0]][nextMove[1]] != '+':
+                    return False 
         
-        if count > 1 or count == 0:
+        if globCount > 11 and globCount2 == 2:
             return False
+        
+        if count == 0:
+            return False        
+
         
         if grid[currentRow][currentCol] == "-":
             if nextMove[1] == currentCol:
@@ -104,13 +116,14 @@ def line(grid):
     for i in range(len(grid)):                              # check for redundant path 
         for j in range(len(grid[0])):
             if gridCopy[i][j] == 0 and grid[i][j] != " ":
-                return False 
+                return False
+
     return True
 
 grid2 = ["                      ",
-        "   +-------+          ",
-        "   |      +++---+     ",
-        "X--+      +-+   X     "]
+         "   +-------+          ",
+         "   |      +++---+     ",
+         "X--+      +-+   X     "]
 
 
 
@@ -143,5 +156,15 @@ grid = ["X-----+",
         "X-----+",  
         "      |",  
         "------+"]
-grid = ["X-----X"]
+grid3 = ["X-----X"]
+
+grid = ["      X  ",   
+        "X+++  +-+", 
+        " +++--+ |", 
+        "      +-+"]
+
+grid = ["  ++  ",      
+        " ++++ ",   
+        " ++++ ",   
+        "X-++-X"]
 b = line(grid)

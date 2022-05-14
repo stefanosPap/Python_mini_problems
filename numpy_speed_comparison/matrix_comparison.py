@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+ 
 from datetime import datetime
+import time 
 import numpy as np
 
 n = 20
@@ -31,3 +34,4 @@ for t in range(times):
 dt2 = datetime.now() - t0
 
 print("dt1 / dt2", dt1.total_seconds() / dt2.total_seconds())
+time.sleep(10)
